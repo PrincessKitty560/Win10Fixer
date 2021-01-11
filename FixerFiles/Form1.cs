@@ -29,8 +29,9 @@ namespace W10_Installation_Fixer
             if (MessageBox.Show("It is suggested that you close all other windows when running this, as you could lose progress on any open applications. After completing, your PC will reboot, are you sure you are ready to proceed?", 
                 "Win10 Fixer", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
+                bool instED = checkBox1.Checked;
                 int Browser = comboBox1.SelectedIndex;
-                Program.RunScripts(Browser);
+                Program.RunScripts(Browser, instED);
             }
         }
 

@@ -34,49 +34,52 @@ namespace W10_Installation_Fixer
             }
         }
 
-        public static void RunScripts(int Browser)
+        public static void RunScripts(int browser, bool instED)
         {
             //Install Browsers
-            switch (Browser)
+            switch (browser)
             {
                 case 0:
-                    Process Chrome = new Process();
-                    Chrome.StartInfo = new ProcessStartInfo("powershell.exe", "-executionpolicy unrestricted -command C:/temp/Win10_Fix/Install_Chrome.ps1");
-                    Chrome.Start();
-                    Chrome.WaitForExit();
+                    Process chrome = new Process();
+                    chrome.StartInfo = new ProcessStartInfo("powershell.exe", "-executionpolicy unrestricted -command C:/temp/Win10_Fix/Install_Chrome.ps1");
+                    chrome.Start();
+                    chrome.WaitForExit();
                     break;
                 case 1:
-                    Process Firefox = new Process();
-                    Firefox.StartInfo = new ProcessStartInfo("powershell.exe", "-executionpolicy unrestricted -command C:/temp/Win10_Fix/Install_Firefox.ps1");
-                    Firefox.Start();
-                    Firefox.WaitForExit();
+                    Process firefox = new Process();
+                    firefox.StartInfo = new ProcessStartInfo("powershell.exe", "-executionpolicy unrestricted -command C:/temp/Win10_Fix/Install_Firefox.ps1");
+                    firefox.Start();
+                    firefox.WaitForExit();
                     break;
                 case 2:
                     break;
             }
-            //Install EdgeDeflector
-            Process EDS = new Process();
-            EDS.StartInfo = new ProcessStartInfo("C:/temp/EdgeDeflector_Setup.exe");
-            EDS.Start();
-            EDS.WaitForExit();
+            if (instED == true)
+            {
+                //Install EdgeDeflector
+                Process eDS = new Process();
+                eDS.StartInfo = new ProcessStartInfo("C:/temp/EdgeDeflector_Setup.exe");
+                eDS.Start();
+                eDS.WaitForExit();
 
-            //Use SetUserFTA to change edge protocol to open EdgeDeflector
-            Process SUFTA = new Process();
-            SUFTA.StartInfo = new ProcessStartInfo("C:/temp/Win10_Fix/SetUserFTA.exe", "microsoft-edge EdgeUriDeflector");
-            SUFTA.Start();
-            SUFTA.WaitForExit();
+                //Use SetUserFTA to change edge protocol to open EdgeDeflector
+                Process sUFTA = new Process();
+                sUFTA.StartInfo = new ProcessStartInfo("C:/temp/Win10_Fix/SetUserFTA.exe", "microsoft-edge EdgeUriDeflector");
+                sUFTA.Start();
+                sUFTA.WaitForExit();
+            }
 
             //Run Auto_Decrapify script
-            Process AD = new Process();
-            AD.StartInfo = new ProcessStartInfo("powershell.exe", "-executionpolicy unrestricted -command C:/temp/Win10_Fix/Auto_Decrapify.ps1");
-            AD.Start();
-            AD.WaitForExit();
+            Process aD = new Process();
+            aD.StartInfo = new ProcessStartInfo("powershell.exe", "-executionpolicy unrestricted -command C:/temp/Win10_Fix/Auto_Decrapify.ps1");
+            aD.Start();
+            aD.WaitForExit();
 
             //Message Complete
             MessageBox.Show("Click OK to restart your PC", "Win10 Fixer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Directory.Delete("C:/temp/Win10_Fix", true);
-            Process Restart = new Process();
-            Restart.StartInfo = new ProcessStartInfo("cmd.exe", "shutdown /r /t 10");
+            Process restart = new Process();
+            restart.StartInfo = new ProcessStartInfo("cmd.exe", "shutdown /r /t 10");
             Application.Exit();
         }
         
