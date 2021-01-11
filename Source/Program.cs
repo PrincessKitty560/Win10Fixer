@@ -22,6 +22,7 @@ namespace W10_Installation_Fixer
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+                Directory.CreateDirectory("C:/temp/Win10_Fix/");
                 File.WriteAllBytes("C:/temp/Win10_Fix/Auto_Decrapify.ps1", Properties.Resources.Auto_DeCrapify);
                 File.WriteAllBytes("C:/temp/Win10_Fix/Install_Chrome.ps1", Properties.Resources.Install_Chrome);
                 File.WriteAllBytes("C:/temp/Win10_Fix/Install_Firefox.ps1", Properties.Resources.Install_FireFox);
