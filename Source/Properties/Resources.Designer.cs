@@ -93,9 +93,9 @@ namespace W10_Installation_Fixer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] setup {
+        internal static byte[] publish {
             get {
-                object obj = ResourceManager.GetObject("setup", resourceCulture);
+                object obj = ResourceManager.GetObject("publish", resourceCulture);
                 return ((byte[])(obj));
             }
         }

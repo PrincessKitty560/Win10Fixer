@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,10 +25,6 @@ namespace W10_Installation_Fixer
                 Application.SetCompatibleTextRenderingDefault(false);
                 Directory.CreateDirectory("C:/temp/Win10_Fix/");
                 File.WriteAllBytes("C:/temp/Win10_Fix/Auto_Decrapify.ps1", Properties.Resources.Auto_DeCrapify);
-                File.WriteAllBytes("C:/temp/Win10_Fix/Install_Chrome.ps1", Properties.Resources.Install_Chrome);
-                File.WriteAllBytes("C:/temp/Win10_Fix/Install_Firefox.ps1", Properties.Resources.Install_FireFox);
-                File.WriteAllBytes("C:/temp/Win10_Fix/EdgeDeflector_Setup.exe", Properties.Resources.setup);
-                File.WriteAllBytes("C:/temp/Win10_Fix/SetUserFTA.exe", Properties.Resources.SetUserFTA);
                 Application.Run(new Form1());
             } else {
                 MessageBox.Show("The application was not run as an administrator. To prevent errors, the application must be run as administrator!", "Win10 Fixer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -37,6 +34,11 @@ namespace W10_Installation_Fixer
 
         public static void RunScripts(int browser, bool instED)
         {
+            File.WriteAllBytes("C:/temp/Win10_Fix/Install_Chrome.ps1", Properties.Resources.Install_Chrome);
+            File.WriteAllBytes("C:/temp/Win10_Fix/Install_Firefox.ps1", Properties.Resources.Install_FireFox);
+            File.WriteAllBytes("C:/temp/Win10_Fix/EdgeDeflector_Setup.zip", Properties.Resources.publish);
+            File.WriteAllBytes("C:/temp/Win10_Fix/SetUserFTA.exe", Properties.Resources.SetUserFTA);
+            ZipFile.ExtractToDirectory("C:/temp/Win10_Fix/EdgeDeflector_Setup.zip", "C:/temp/Win10_Fix/", true);
             //Install Browsers
             switch (browser)
             {
@@ -59,7 +61,7 @@ namespace W10_Installation_Fixer
             {
                 //Install EdgeDeflector
                 Process eDS = new Process();
-                eDS.StartInfo = new ProcessStartInfo("C:/temp/EdgeDeflector_Setup.exe");
+                eDS.StartInfo = new ProcessStartInfo("C:/temp/Win10_Fix/Setup.exe");
                 eDS.Start();
                 eDS.WaitForExit();
 

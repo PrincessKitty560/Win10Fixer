@@ -127,8 +127,8 @@
   <data name="Install_FireFox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\install_firefox.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="setup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\setup.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="publish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\publish.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SetUserFTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\setuserfta.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
