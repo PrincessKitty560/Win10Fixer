@@ -50,7 +50,7 @@ namespace W10_Installation_Fixer
         {
             if (MessageBox.Show("This is only recommended for advanced users, are you sure you wish to continue?", "W10 Installation Fixer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Process.Start("C:/temp/Auto_Decrapify.ps1");
+                Process.Start("C:/temp/Win10_fix/Auto_Decrapify.ps1");
             } else {
                 //Do nothing
             }
