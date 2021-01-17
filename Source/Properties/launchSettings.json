@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "W10_Installation_Fixer": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
