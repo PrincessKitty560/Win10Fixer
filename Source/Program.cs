@@ -76,13 +76,6 @@ namespace W10_Installation_Fixer
             Process aD = new Process();
             aD.StartInfo = new ProcessStartInfo("powershell.exe", "-executionpolicy unrestricted -command C:/temp/Win10_Fix/Auto_Decrapify.ps1");
             aD.Start();
-            aD.WaitForExit();
-
-            //Message Complete
-            MessageBox.Show("Click OK to restart your PC", "Win10 Fixer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Directory.Delete("C:/temp/Win10_Fix", true);
-            Process restart = new Process();
-            restart.StartInfo = new ProcessStartInfo("cmd.exe", "shutdown /r /t 10");
             Application.Exit();
         }
         
