@@ -1046,10 +1046,11 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Advertising
 ##########
 # Restart
 ##########
-Write-Host
-Write-Host "Press any key to restart your system..." -ForegroundColor Black -BackgroundColor White
-$key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-Write-Host "Restarting..."
-Restart-Computer
+#Write-Host
+#Write-Host "Press any key to restart your system..." -ForegroundColor Black -BackgroundColor White
+#$key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+#Write-Host "Restarting..."
+#Restart-Computer
+Stop-Process -ProcessName explorer
 
 exit
